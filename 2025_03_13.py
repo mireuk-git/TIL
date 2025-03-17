@@ -9,12 +9,12 @@ for n in range(1,a+1):
 
 # https://www.acmicpc.net/problem/27919
 # 27919
-
+from math import ceil
 l=[0,0]
 v=input()
 l[0]=v.count("U")+v.count("C")
 l[1]=v.count("D")+v.count("P")
-if l[0]>1 and l[0]>=l[1]: print("U",end='')
-if l[1]>0 and l[0]<=l[1]: print("DP",end='')
+if l[0]>0 and l[0]>ceil(l[1]/2): print("U",end='')
+if l[1]>0: print("DP",end='')
 if len(v)==0: print("C")
 print('')
