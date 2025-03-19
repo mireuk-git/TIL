@@ -24,6 +24,7 @@ t=int(input())
 for _ in range(t):
     n=int(input())
     l=list(map(int,str(n)))
+    l.insert(0,0)
     l.sort()
     perm=list(permutations(l))
     r=perm[0]
