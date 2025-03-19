@@ -23,18 +23,14 @@ from itertools import permutations
 t=int(input())
 for _ in range(t):
     n=int(input())
-    l=[]
-    while n>0:
-        l.insert(0,n%10)
-        n//=10
-    n=int(''.join(map(str,l)))
+    l=list(map(int,str(n)))
     l.sort()
     perm=list(permutations(l))
-    r=0
+    r=perm[0]
     for i in perm:
         i=int(''.join(map(str,i)))
         if i > n: 
             r=i
             break
 
-    print(f"Case #{_}:",r)
+    print(f"Case #{_+1}:",r)
