@@ -6,9 +6,10 @@ for _ in range(t):
     k=[[]]*len(l)
     for i in range(len(l)):
         k[i]=list(map(int,l[i].split(":")))
-        k[i][0]=(k[i][0]%12+k[i][1]/60)*5
-        k.append(abs(k[i][0]-k[i][1]))
-    z=sorted(zip(l,k))
-    l,k=zip(*z)
+        k[i][0]=(k[i][0]%12)*5+k[i][1]/12
+        k[i]=(abs(k[i][0]-k[i][1]))
+        k[i]=min(k[i],60-k[i])
+    z=sorted(zip(k,l),key=lambda x:(x[0],int(x[1][0:2])))
+    k,l=zip(*z)
     print(l[len(l)//2])
 
