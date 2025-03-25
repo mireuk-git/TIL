@@ -26,24 +26,16 @@ while n!=0:
 
 # https://www.acmicpc.net/problem/33524
 # 33524
+from math import sqrt
+from bisect import bisect_right
 
 n,m=map(int,input().split())
 a=list(map(int,input().split()))
 a.sort()
 b=list(map(int,input().split()))
-c=[0]*m
 
 for i in range(m):
-    p,q=0,len(a)-1
-    while p<=q:
-        mid=(p+q)//2
-        if a[mid]<=b[i]:
-            c[i]=mid
-            p=mid+1
-        else:
-            q=mid-1
+    c=bisect_right(a,b[i])-1
+    if c==-1: print(0,end=' ')
+    else: print(int((3+sqrt(9+12*c))//6),end=' ')
 
-from math import sqrt
-for i in range(m):
-    if c[i]==0: print(0,end=' ')
-    else: print(int((3+sqrt(9+12*c[i]))//6),end=' ')
