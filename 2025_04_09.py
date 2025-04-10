@@ -30,7 +30,7 @@ print(' '.join(res) if res else -1)
 # https://www.acmicpc.net/problem/12572
 
 t=int(input())
-for _ in t:
+for _ in range(1,t+1):
     n=int(input())
     wires=[]
     for i in range(n):
@@ -40,6 +40,7 @@ for _ in t:
         for w2 in range(w1+1,n):
             if (wires[w1][0]<wires[w2][0] and wires[w1][1]>wires[w2][1]) or (wires[w1][0]>wires[w2][0] and wires[w1][1]<wires[w2][1]):
                 c+=1
+    print(f"Case #{_}:",c)
 
 
 
