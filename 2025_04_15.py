@@ -1,6 +1,6 @@
 # https://www.acmicpc.net/problem/8989
 # 8989
-
+'''
 t=int(input())
 for _ in range(t):
     times=list(input().split())
@@ -12,3 +12,10 @@ for _ in range(t):
     z=sorted(zip(angles,times))
     angles,times=zip(*z)
     print(times[2])
+'''
+# https://www.acmicpc.net/problem/2168
+# 2168
+
+from math import gcd
+x,y=map(int,input().split())
+print(x+y-gcd(x,y))
