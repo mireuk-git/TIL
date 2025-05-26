@@ -40,8 +40,7 @@ for _ in range(n):
         s.append(int(input()))
     s=Counter(s)
     m,M=0,0
-    k=sorted(s.keys())
-    for i in k:
+    for i in sorted(s.keys()):
         if m<s[i]:
             m,M=s[i],i
-    print(i)
+    print(M)
