@@ -29,10 +29,10 @@ l=list(map(int,input().split()))
 m=0
 for i in range(n):
     s=0
-    c=0
+    count=0
     for j in range(i,n):
-        if s<=n-l[j]:
+        if s<=c-l[j]:
             s+=l[j]
-            c+=1
-    if c>m: m=c
+            count+=1
+    if count>m: m=count
 print(m)
