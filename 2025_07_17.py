@@ -23,7 +23,7 @@ for i in range(8):
             if err_validator(i,j):
                 valid=False
 if queen_cnt!=8: 
-    vaild=False
+    valid=False
 
 if valid: print('valid')
 else: print('invalid')
