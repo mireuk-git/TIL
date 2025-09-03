@@ -10,7 +10,7 @@ print(UTC.day)
 '''
 # https://www.acmicpc.net/problem/8595
 # 8595
-
+'''
 n=int(input())
 feed=input()
 left=-1
@@ -24,4 +24,15 @@ for i in range(n):
         left=-1
 if ord(feed[i])>=48 and ord(feed[i])<=57:
     s+=int(feed[left:i+1])
+print(s)
+'''
+# https://www.acmicpc.net/problem/25707
+# 25707
+
+n=int(input())
+marble=list(map(int,input().split()))
+marble.sort()
+s=0
+for i in range(n-1): s+=marble[i+1]-marble[i]
+s+=marble[-1]-marble[0]
 print(s)
