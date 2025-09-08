@@ -1,37 +1,50 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+class Point {
+    int x,y;
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class TriangleCounter {
+    private Point[] points;
+    private HashMap<Integer, Integer> cntX= new HashMap<>();
+    private HashMap<Integer, Integer> cntY= new HashMap<>();
+
+    public TriangleCounter(Point[] points) {
+        this.points=points;
+        for (Point p : points){
+            cntX.put(p.x, cntX.getOrDefault(p.x,0)+1);
+            cntY.put(p.y, cntY.getOrDefault(p.y,0)+1);
+        }
+    }
+
+    public long count(){
+        long r = 0;
+        for (Point p : points) {
+            r += (long)(cntX.get(p.x)-1)*(long)(cntY.get(p.y)-1);
+        }
+        return r;
+    }
+}
+
 public class p3000 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[][] points = new int[n][2];
-        HashMap<Integer, Integer> cnt_x =6 new HashMap<>();
-        HashMap<Integer, Integer> cnt_y = new HashMap<>();
+        Point[] points = new Point[n];
+        
         for (int i=0;i<n;i++){
-            String[] point = scanner.next().split(" ");
-            int x=Integer.parseInt(point[0]);
-            System.out.println(point[0]);
-            int y=Integer.parseInt(point[1]);
-            System.out.println("y");
-            points[i][0]=x;
-            System.out.println("points.x");
-            points[i][1]=y;
-
-            cnt_x.put(x,cnt_x.getOrDefault(x,0)+1);
-            System.out.println("cnt_x");
-            cnt_y.put(y,cnt_y.getOrDefault(y,0)+1);
+            int x=scanner.nextInt();
+            int y=scanner.nextInt();
+            points[i] = new Point(x,y);
         }
         scanner.close();
-        System.out.println("input finished");
 
-        long count=0;
-        for (int i=0;i<n;i++){
-            int x = points[i][0];
-            int y = points[i][1];
-            count+=(cnt_x.get(x)-1)*(cnt_y.get(y)-1);
-        }
-        System.out.println(count);
-
+        TriangleCounter tcounter = new TriangleCounter(points);
+        System.out.println(tcounter.count());
     }
 }
