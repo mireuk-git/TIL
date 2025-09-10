@@ -10,9 +10,9 @@ class Point {
 }
 
 class TriangleCounter {
-    private Point[] points;
-    private HashMap<Integer, Integer> cntX= new HashMap<>();
-    private HashMap<Integer, Integer> cntY= new HashMap<>();
+    private final Point[] points;
+    private final HashMap<Integer, Integer> cntX= new HashMap<>();
+    private final HashMap<Integer, Integer> cntY= new HashMap<>();
 
     public TriangleCounter(Point[] points) {
         this.points=points;
@@ -33,16 +33,16 @@ class TriangleCounter {
 
 public class p3000 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        Point[] points = new Point[n];
-        
-        for (int i=0;i<n;i++){
-            int x=scanner.nextInt();
-            int y=scanner.nextInt();
-            points[i] = new Point(x,y);
+        Point[] points;
+        try (Scanner scanner = new Scanner(System.in)) {
+            int n = scanner.nextInt();
+            points = new Point[n];
+            for (int i=0;i<n;i++){
+                int x=scanner.nextInt();
+                int y=scanner.nextInt();
+                points[i] = new Point(x,y);
+            }
         }
-        scanner.close();
 
         TriangleCounter tcounter = new TriangleCounter(points);
         System.out.println(tcounter.count());
