@@ -14,11 +14,12 @@ public class p31670 {
         return Math.min(dp[n-1][0],dp[n-1][1]);
     }
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int[] r = new int[n];
-        for (int i=0;i<n;i++){ r[i] = scanner.nextInt(); }
-        scanner.close();
+        int[] r;
+        try (Scanner scanner = new Scanner(System.in)) {
+            int n = scanner.nextInt();
+            r = new int[n];
+            for (int i=0;i<n;i++){ r[i] = scanner.nextInt(); }
+        }
 
         System.out.println(minCost(r));
         
