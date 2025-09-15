@@ -1,0 +1,20 @@
+# https://www.acmicpc.net/problem/28307
+# 28307
+
+c=int(input())
+tiles=[list(map(int,input().split())) for _ in range(2)]
+
+meters=0
+for x in range(2):
+    for y in range(c):
+        if tiles[x][y]:
+            meters+=3
+            if y<c-1 and tiles[x][y+1]:
+                meters-=1
+            if y>0 and tiles[x][y-1]:
+                meters-=1
+            if (x+y)%2==0 and x<1 and tiles[x+1][y]:
+                meters-=1
+            if (x+y)%2 and x>0 and tiles[x-1][y]:
+                meters-=1
+print(meters)
