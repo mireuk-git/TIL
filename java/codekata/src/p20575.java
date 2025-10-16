@@ -1,25 +1,4 @@
-# Codekata
-### 20575
-[link](https://www.acmicpc.net/problem/20575)
-#### python
-```python
-from math import ceil,floor
-import sys
-input=sys.stdin.readline
 
-n=int(input().strip())
-count=0
-for i in range(n):
-    x1,y1,x2,y2=map(float,input().strip().split())
-    lo,hi = min(x1,x2),max(x1,x2)
-    if ceil(lo)<hi: count+=1
-print(2*n/count)
-```
-- 두 좌표를 잇는 선분이 x=n 그래프를 지나는지 개수를 세서 값 출력 
-- 두 실수형 사이에 정수가 있는지 판별하는 법: `ceil(lo)`가 `hi`보다 작다면 존재함
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,10 +17,8 @@ public class p20575 {
             double x2 = Double.parseDouble(st.nextToken()), y2 = Double.parseDouble(st.nextToken());
             if (x1>x2) { double tmp = x1; x1=x2; x2=tmp; }
             if (Math.ceil(x1)<x2) { count++; }
-            System.out.println(x1+" "+x2);
         }
         double piApprox = 2.0*n/count;
         System.out.println(piApprox);
     }
 }
-```
