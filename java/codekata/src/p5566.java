@@ -1,25 +1,3 @@
-# Codekata
-### 5566
-[link](https://www.acmicpc.net/problem/5566)
-#### python
-```python
-n,m=map(int,input().split())
-x=[]
-for _ in range(n): x.append(int(input()))
-st=0
-cnt=0
-d=[]
-for _ in range(m): d.append(int(input()))
-for j in d:
-    cnt+=1
-    st+=j
-    if st<=n-1: st+=x[st]
-    if st>=n-1: break
-print(cnt)
-```
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,5 +31,3 @@ public class p5566 {
         System.out.println(cnt);
     }
 }
-```
-- python 풀이에서 실수로 빼먹은게 있는데 말이 있는 칸을 다루는 변수인 `z`(`st`)는 음수가 될 수 없다. 따라서 0보다 낮아지면 0으로 만드는 코드를 삽입해야 한다.
