@@ -1,0 +1,16 @@
+# https://www.acmicpc.net/problem/5566
+# 5566
+
+n,m=map(int,input().split())
+x=[]
+for _ in range(n): x.append(int(input()))
+st=0
+cnt=0
+d=[]
+for _ in range(m): d.append(int(input()))
+for j in d:
+    cnt+=1
+    st+=j
+    if st<=n-1: st+=x[st]
+    if st>=n-1: break
+print(cnt)
