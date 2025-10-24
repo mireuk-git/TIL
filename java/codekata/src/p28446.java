@@ -1,32 +1,21 @@
-# CodeKata
-### 28446
-[link](https://www.acmicpc.net/problem/28446)
-#### python
-```python
-import sys
-input=sys.stdin.readline
 
-m=int(input().strip())
-location={}
-for i in range(m):
-    request = input().strip()
-    op,request = request.split(' ',1)
-    if op=='1':
-        x,w=map(int,request.split())
-        location[w]=x
-    if op=='2':
-        w = int(request)
-        print(location[w])
-```
-- `Dictionary`형으로 저장
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
+
+class locationManager{
+    private final HashMap<Integer,Integer> location = new HashMap<>();
+    
+    public void register(int x, int w){
+        location.put(w,x);
+    }
+
+    public int getLocation(int w){
+        return location.get(w);
+    }
+}
 
 public class p28446{
     public static void main(String[] args) throws IOException{
@@ -53,28 +42,3 @@ public class p28446{
         }
     }
 }
-```
-- 객체지향으로 작성한다면, `location` HashMap을 따로 클래스로 분리할 수 있을 것이다. 
-```java
-class locationManager{
-    private final HashMap<Integer,Integer> location = new HashMap<>();
-    
-    public void register(int x, int w){
-        location.put(w,x);
-    }
-
-    public int getLocation(int w){
-        return location.get(w);
-    }
-}
-```
-
-# 정보처리기사
-## 페이지 교체 알고리즘
-#### FIFO
-#### OPT
-나중에 교체될 것들을 계산
-이론적으로만 존재
-#### NUR
-참조비트, 변형비트
-#### SCR
