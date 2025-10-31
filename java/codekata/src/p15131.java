@@ -1,23 +1,4 @@
-# Codekata
-### 15131
-[link](https://www.acmicpc.net/problem/15131)
-#### python
-```python
-n = int(input())
-power_to_segments = {0:0,2:1,4:4}
-sum = n//3*7
-n%=3
-if n==1:
-    sum-=7
-    n+=3
-sum+=power_to_segments[n]
-print(sum)
-```
-- 최고의 효율을 자랑하는 7
-- 최대 `n`코스트중 최대한 많이 3코스트를 소모하는 7로 바꾸고, 나머지를 각 코스트 중 가장 값이 큰 숫자들(2코스트의 1, 4코스트의 4)로 대체, 단 이때 1코스트로 만들수 있는 숫자가 없으므로 7을 쪼개 4코스트의 4를 만들어야 한다.
 
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -44,5 +25,3 @@ public class p15131 {
         System.out.println(sum);
     }
 }
-```
-- 딕셔너리나 `HashMap` 대신 `switch`를 사용했다.
