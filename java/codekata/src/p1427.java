@@ -1,19 +1,4 @@
-# Codekata
-### 1427
-[link](https://www.acmicpc.net/problem/1427)
-#### python
-```python
-n=int(input())
-separated = []
-while n>0:
-    separated.append(n%10)
-    n//=10
-separated.sort(reverse=True)
-for i in separated:
-    print(i,end='')
-```
-#### java
-```java
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,4 +23,3 @@ public class p1427 {
         }
     }
 }
-```
