@@ -1,77 +1,4 @@
-# Codekata
-### 1427
-[link](https://www.acmicpc.net/problem/1427)
-#### python
-```python
-n=int(input())
-separated = []
-while n>0:
-    separated.append(n%10)
-    n//=10
-separated.sort(reverse=True)
-for i in separated:
-    print(i,end='')
-```
-#### java
-```java
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.StringTokenizer;
 
-public class p1427 {
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader((new InputStreamReader(System.in)));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        List<Integer> separated = new ArrayList<>();
-        while(n>0){
-            separated.add(n%10);
-            n/=10;
-        }
-        separated.sort(Comparator.reverseOrder());
-        for (int i=0;i<separated.size();i++){
-            System.out.print(separated.get(i));
-        }
-    }
-}
-```
-
-### 6119
-[link](https://www.acmicpc.net/problem/6119)
-#### python
-```python
-import sys
-from collections import deque
-input = sys.stdin.readline
-
-s=int(input().strip())
-queue=deque([])
-i=1
-for _ in range(s):
-    op,remains=input().strip().split(" ",1)
-    if op == 'A':
-        if remains == 'L': queue.appendleft(i)
-        elif remains == 'R': queue.append(i)
-        i+=1
-    elif op == 'D':
-        direction,count=remains.split()
-        if direction == 'L':
-            for j in range(int(count)):
-                queue.popleft()
-        elif direction == 'R':
-            for j in range(int(count)):
-                queue.pop();
-for i in queue:
-    print(i)
-```
-- 양옆으로 요소를 추가하고 삭제할 수 있는 `deque` 활용
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -177,5 +104,3 @@ public class p6119 {
         line.print();
     }
 }
-```
-- 손수 `Double Linked List`를 구현

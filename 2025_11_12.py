@@ -15,7 +15,7 @@ for i in separated:
 
 import sys
 from collections import deque
-input = sys.stdin.readline
+input = sys.stdin.readline 
 
 s=int(input().strip())
 queue=deque([])
