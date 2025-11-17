@@ -1,23 +1,4 @@
-# Codekata
-### 2765
-[link](https://www.acmicpc.net/problem/2765)
-#### python
-```python
-trip = 0
-while True:
-    diameter, revol, time = map(float,input().split())
-    revol=int(revol)
-    if revol == 0: break
-    trip+=1
 
-    pi = 3.1415927
-    distance = pi*diameter*revol/5280/12
-    mph = distance/time*3600
-    print("Trip #{}: {:.2f} {:.2f}".format(trip,distance,mph))
-```
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,4 +23,3 @@ public class p2765 {
         }
     }
 }
-```
