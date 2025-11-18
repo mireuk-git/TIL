@@ -1,31 +1,3 @@
-# Codekata
-### 12048
-[link](https://www.acmicpc.net/problem/12048)
-#### python
-```python
-import sys
-input = sys.stdin.readline
-
-t=int(input().strip())
-for test_case in range(1,1+t):
-    print(f"Case #{test_case}:")
-    n,q = map(int,input().strip().split())
-    initial = list(map(int,input().strip().split()))
-
-    new = []
-    for l in range(n):
-        for r in range(l,n):
-            new.append(sum(initial[l:r+1]))
-    new.sort()
-
-    for i in range(q):
-        l,r = map(int,input().strip().split())
-        print(sum(new[l-1:r]))
-```
-- `l`,`r`을 `initial`의 subarray의 양 끝을 가리키는 포인터처럼 사용해서 `sum()`으로 합산해 `new`에 집어넣기
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -68,4 +40,3 @@ public class p12048 {
         }
     }
 }
-```
