@@ -1,33 +1,4 @@
-# Codekata
-### 11576
-[link](https://www.acmicpc.net/problem/11576)
-#### python
-```python
-a,b=map(int,input().split())
-m=int(input())
-l=list(map(int,input().split()))
 
-s=0
-for i in l:
-    s*=a
-    s+=i
-
-r=[]
-while s>0:
-    r.append(s%b)
-    s//=b
-
-r_str = ''
-r.reverse()
-for i in r:
-    r_str+=str(i)+" "
-print(r_str)
-```
-- 입력되는 숫자를 진법`a`에서 10진수로 먼저 변환
-- 10진수로 변환된 수를 진법`b`로 변환
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -61,6 +32,3 @@ public class p11576 {
         for (int i=r.size()-1;i>=0;i--) System.out.print(r.get(i)+" ");
     }
 }
-```
-- 입력받으면서 즉시 10진수로 변환하는 계산을 진행하도록 소소하게 바뀌었다. 
-- 길이가 늘어나는 자료형을 `List`밖에 몰라서 List를 import해와서 쓰긴 했는데... 저렇게 활용할 데가 하나밖에 없어서 좀. import 안할 방법은 없었나
