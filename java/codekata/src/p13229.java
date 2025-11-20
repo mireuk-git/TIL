@@ -1,22 +1,4 @@
-# Codekata
-### 13229
-[link](https://www.acmicpc.net/problem/13229)
-#### python
-```python
-import sys
-input=sys.stdin.readline
 
-n = int(input().strip())
-l = list(map(int,input().strip().split()))
-m = int(input().strip())
-for _ in range(m):
-    start,end = map(int,input().strip().split())
-    s = sum(l[start:end+1])
-    print(s)
-```
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -47,4 +29,3 @@ class p13229 {
         }
     }
 }
-```
