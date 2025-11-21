@@ -1,33 +1,3 @@
-# Codekata
-### 31909
-[link](https://www.acmicpc.net/problem/31909)
-#### python
-```python
-n=int(input())
-a=list(map(int,input().split()))
-l={0:0,1:1,2:2,3:3,4:4,5:5,6:6,7:7}
-k=int(input())
-
-for i in a:
-    a_bin = bin(i)
-    if a_bin.count("1")!=2: continue
-    a_bin = "0"*(10-len(a_bin)) + a_bin[2:]
-    left,right=10,10
-    for j in range(8):
-        if a_bin[j]=="1":
-            if left==10: left=7-j
-            else: 
-                right=7-j
-                break
-    l[left],l[right]=l[right],l[left]
-
-print(l[k])
-```
-- `p[i]`와 `p[j]`에 있는 키의 위치를 바꾸는 게 아니라 `i`키와 `j`키의 위치를 바꾸는 것이기 때문에 각 키마다의 위치를 딕셔너리로 관리하는 게 편리함
-- `bin()`으로 이진수로 바꾼 `a`는 왼쪽에 자리한(먼저 검수되는) 값이 7에 더 가깝고 오른쪽에 자리한 값이 0에 더 가까움
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -65,6 +35,3 @@ public class p31909 {
         System.out.println(location.get(k));
     }
 }
-```
-- `StringTokenizer()`를 썼기 때문에 `a`마다 바로바로 자리 바꾸기 진행, `a`를 배열로 만들 필요 없음
-- `a`를 이진화하면서 자리를 바꿀 두 좌표 `p1`과 `p2` 동시 탐색, 3개 이상 나올 경우 유효하지 않은 명령어로 간주하고 즉시 다음 명령어 이진화, `a`를 분석하는 루프 최대 O(7)
