@@ -1,26 +1,3 @@
-# Codekata
-### 11652
-[link](https://www.acmicpc.net/problem/11652)
-#### python
-```python
-import sys
-input = sys.stdin.readline
-
-n=int(input())
-i = int(input())
-count={i:1}
-maximum = i
-for _ in range(n-1): 
-    i = int(input())
-    count[i] = count.setdefault(i,0)+1
-    if count[i]>count[maximum]: maximum = i
-    elif count[i]==count[maximum] and i<maximum: maximum = i
-print(maximum)
-```
-- dictionary로 나온 횟수 관리
-
-#### java
-```java
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,7 +25,3 @@ public class p11652 {
         System.out.println(max);
     }
 }
-```
-- `Integer`, `Long` 등은 `int`,`long`과 정확히 같은 클래스가 아니다.
-- 래퍼 객체의 `==` 비교는 값 비교가 아니라 레퍼런스(주소) 비교로 작동
-- 래퍼 객체의 값 비교는 `.equals()`로 진행해야함
