@@ -1,0 +1,16 @@
+# https://www.acmicpc.net/problem/11652
+# 11652
+
+import sys
+input = sys.stdin.readline
+
+n=int(input())
+i = int(input())
+count={i:1}
+maximum = i
+for _ in range(n-1): 
+    i = int(input())
+    count[i] = count.setdefault(i,0)+1
+    if count[i]>count[maximum]: maximum = i
+    elif count[i]==count[maximum] and i<maximum: maximum = i
+print(maximum)
