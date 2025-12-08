@@ -1,27 +1,4 @@
-# Codekata
-### 12927
 
-#### python
-- 스위치가 n개, 전구도 n개니 모든 전구를 끌 수 없는 경우는 존재하지 않음
-```python
-feed = input()
-status=['']
-for i in feed:
-    if i=='Y': status.append(True)
-    elif i=='N': status.append(False)
-count=0
-
-for i in range(1,len(status)):
-    if status[i]:
-        for j in range(i,len(status),i):
-            status[j]=not status[j]
-        count+=1
-print(count)
-```
-- `i`가 작을수록 더 많은 전구에 변화를 주므로 `i`를 오름차순으로 조회하며 켜져있는 전구를 끄는 것이 더 유리함
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -49,4 +26,3 @@ public class p12927 {
         System.out.println(cnt);
     }
 }
-```
