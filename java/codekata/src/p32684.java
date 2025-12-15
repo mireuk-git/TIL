@@ -1,19 +1,4 @@
-# Codekata
-### 32864
-[link](https://www.acmicpc.net/problem/32684)
-#### python
-```python
-p1 = list(map(int,input().split()))
-p2 = list(map(int,input().split()))
 
-p1_score = 13*p1[0]+7*p1[1]+5*p1[2]+3*p1[3]+3*p1[4]+2*p1[5]
-p2_score = 13*p2[0]+7*p2[1]+5*p2[2]+3*p2[3]+3*p2[4]+2*p2[5] + 1.5
-if p1_score > p2_score: print("cocjr0208")
-else: print("ekwoo")
-```
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,4 +19,3 @@ public class p32684 {
         else System.out.println("ekwoo");
     }
 }
-```
