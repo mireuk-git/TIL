@@ -1,40 +1,4 @@
-# Codekata
-### 31497
-[link](https://www.acmicpc.net/problem/31497)
-#### python
-```python
-import sys
-input = sys.stdin.readline
 
-n = int(input().strip())
-names = []
-for i in range(n):
-    names.append(input().strip())
-
-lie=0
-for i in range(n):
-    res=[]
-    for j in range(2):
-        print("?",names[i],flush=True)
-        res.append(int(input().strip()))
-    s = sum(res)
-    if s==1:
-        lie=i+1
-    elif s>1:
-        print("!",names[i],flush=True)
-        lie=False
-        break
-if lie:
-    print("!",names[lie-1],flush=True)
-```
-- `flush`: 메모리 버퍼에 쌓인 데이터를 즉시 상대(인터랙터)에게 밀어냄
-- 인터랙터는 거짓말이 단 한번만 가능하므로, 최대 `2n`번의 질문 안에 문제를 해결할 수 있음(`n<=500`,최대 질문 수 1000)
-- 한 이름 당 두번씩 질문해 인터랙터의 질문을 `int`형으로 전환해 합산한 값이 1이라면, 인터랙터가 거짓말을 한 것으로 판별
-- 합산한 값이 2라면 인터랙터가 거짓말을 하지 않고 생일자를 출력한 것으로 판별
-- 만약 `2n`번의 질문까지 인터랙터의 답의 합이 2인 생일자가 안나올 경우, 기존 합산 값이 1인 생일자를 진짜 생일자로 취급해 출력
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -75,4 +39,3 @@ public class p31497 {
         }
     }
 }
-```
