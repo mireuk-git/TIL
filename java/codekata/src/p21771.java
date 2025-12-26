@@ -1,27 +1,3 @@
-# Codekata
-### 21771
-[link](https://www.acmicpc.net/problem/21771)
-#### python
-```python
-r,c=map(int,input().split())
-rg,cg,rp,cp=map(int,input().split())
-room=[]
-flag=True
-count=0
-for i in range(r):
-    room.append(input())
-    if 'P' in room[i]: 
-        if 'P'*cp in room[i]: count+=1
-if count==rp: flag=False
-if flag: print(1)
-else: print(0)
-```
-- 베개가 온전히 입력됐다면 조건이 만족되지 않은 것이고, 베개 중 일부가 입력되지 않았다면 조건이 충족된 것
-- 조건이 충족되지 않기 위해서는 'P'가 한줄에 연속해서 `cp`개씩, 연속해서 `rp`번의 줄이 입력되어야 한다.
-- 베개가 여러개 있었다면 꼬였겠지.
-
-#### java
-```java
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,4 +29,3 @@ public class p21771{
         else System.out.println(0);
     }
 }
-```
