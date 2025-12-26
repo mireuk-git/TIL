@@ -1,29 +1,4 @@
-# Codekata
-### 27829
-[link](https://www.acmicpc.net/problem/27829)
-#### python
-```python
-import sys
-input=sys.stdin.readline
 
-t=int(input().strip())
-for test_case in range(t):
-    input()
-    ng,nm=map(int,input().strip().split())
-    g = sorted(list(map(int,input().strip().split())))
-    m = sorted(list(map(int,input().strip().split())))
-    gi,mi=0,0
-    while (gi<ng and mi<nm):
-        if g[gi]<m[mi]: gi+=1
-        else: mi+=1
-    if gi>=ng: print("MechaGodzilla")
-    elif mi>=nm: print("Godzilla")
-    else: print("uncertain")
-```
-- `g`,`m` list를 정렬한 후 더블 포인터 `gi`,`mi`를 운용해 한마리가 쓰러질 때마다 포인터를 옮김, 포인터가 끝까지 이동한 리스트가 패배한 걸로 처리
-
-#### java
-```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -64,4 +39,3 @@ public class p27829 {
         }
     }
 }
-```
