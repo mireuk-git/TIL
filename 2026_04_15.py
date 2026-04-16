@@ -1,0 +1,8 @@
+# https://www.acmicpc.net/problem/14182
+
+income = int(input())
+while income!=0:
+    if income>5000000: income=int(income*0.8)
+    elif income>1000000: income=int(income*0.9)
+    print(income)
+    income=int(input())
