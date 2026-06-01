@@ -1,0 +1,94 @@
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+
+
+class Solution{
+    class Pair{
+        int r;
+        int c;
+        Pair(int r, int c){
+            this.r=r;
+            this.c=c;
+        }
+    }
+    boolean accessible(int r, int c, char[][] container){
+        int[] dr={1,0,-1,0}, dc={0,1,0,-1};
+        for (int i=0;i<4;i++){
+            if (container[r+dr[i]][c+dc[i]]=='0') return true;
+        }
+        return false;
+    }
+
+    public int solution(String[] storage, String[] requests){
+        int height = storage.length+2;
+        int width = storage[0].length()+2;
+        char[][] container = new char[height][width];
+        for (int r=0;r<height;r++){
+            for (int c=0;c<width;c++) container[r][c]='0';
+        }
+        for (int r=1;r<height-1;r++){
+            for (int c=1;c<width-1;c++) container[r][c]=storage[r-1].charAt(c-1);
+        }
+
+        for (String req: requests){
+            if (req.length()==1){//lift
+                for (int r=1;r<height-1;r++){
+                    for (int c=1;c<width-1;c++){
+                        if (req.charAt(0)==container[r][c] && accessible(r, c, container)){
+                            container[r][c]='1';
+                        }
+                    }
+                }
+            }
+            else{//crane
+                for (int r=1;r<height-1;r++){
+                    for (int c=1;c<width-1;c++){
+                        if (req.charAt(0)==container[r][c]){
+                            container[r][c]='1';
+                        }
+                    }
+                }
+            }
+            //BFS
+            Queue<Pair> q = new ArrayDeque<>();
+            q.add(new Pair(0,0));
+            int[][] visited = new int[height][width];
+            int[] dr={1,0,-1,0}, dc={0,1,0,-1};
+            while (!q.isEmpty()){
+                Pair p = q.poll();
+                int r = p.r;
+                int c = p.c;
+                container[r][c]='0';
+                for (int i=0;i<4;i++){
+                    if (0<=r+dr[i] && r+dr[i]<=height-1 && 0<=c+dc[i] && c+dc[i]<=width-1){
+                        if (visited[r+dr[i]][c+dc[i]]==0 && (container[r+dr[i]][c+dc[i]]=='0' || container[r+dr[i]][c+dc[i]]=='1')){
+                            visited[r+dr[i]][c+dc[i]]=1;
+                            q.add(new Pair(r+dr[i],c+dc[i]));
+                        }
+                    }
+                }
+            }
+        }
+
+        int count=0;
+        for (int r=1;r<height-1;r++){
+            for (int c=1;c<width-1;c++){
+                if (container[r][c]!='0' && container[r][c]!='1'){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
+
+public class p388353 {
+    public static void main(String[] args){
+        Solution s = new Solution();
+        String[] storage = {"AZWQY", "CAABX", "BBDDA", "ACACA"};
+        String[] requests = {"A", "BB", "A"};
+        System.out.println(s.solution(storage, requests));
+    }
+}
