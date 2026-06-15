@@ -30,7 +30,7 @@ def solution(land):
                     if not visited[r][c-1] and l[r][c-1]==1:
                         queue.append((r,c-1))
                         if (c-1<c_min): c_min = c-1
-                        visited[r][c+1]=True
+                        visited[r][c-1]=True
                     if not visited[r-1][c] and l[r-1][c]==1:
                         queue.append((r-1,c))
                         visited[r-1][c]=True
@@ -41,6 +41,3 @@ def solution(land):
                 for k in range(c_min,c_max+1):
                     c_count[k]+=count
     return max(c_count)
-
-land = [[1, 0, 1, 0, 1, 1], [1, 0, 1, 0, 0, 0], [1, 0, 1, 0, 0, 1], [1, 0, 0, 1, 0, 0], [1, 0, 0, 1, 0, 1], [1, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1]]
-print(solution(land))
