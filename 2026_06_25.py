@@ -1,0 +1,28 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/172927
+
+def solution(picks, minerals):
+    bundled = [[0,0,0] for _ in range(len(minerals)//5+1)]
+    for i in range(len(minerals)):
+        if minerals[i]=="diamond":
+            bundled[i//5][0]+=1
+        elif minerals[i]=="iron":
+            bundled[i//5][1]+=1
+        else: #if minerals[i]=="stone"
+            bundled[i//5][2]+=1 
+    end = sum(picks)-1
+    bundled[:end].sort(key=lambda x:(x[0],x[1],x[2]), reverse=True)
+
+    t=0
+    mapping = [[1,1,1],[5,1,1],[25,5,1]] #map[곡괭이][광물]
+    for b in bundled[:end]:
+        for p in range(3):
+            if picks[p]>0:
+                picks[p]-=1
+                for j in range(3):
+                    t[i]+=mapping[p][j]*b[j]
+                break
+    return t
+
+picks=[1,3,2]
+minerals=["diamond", "diamond", "diamond", "iron", "iron", "diamond", "iron", "stone"]
+print(solution(picks,minerals))
